@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.pyd
+*.so
+
+# Node&Electron
+node_modules/
+frontend/dist/
+frontend/node_modules/
+release/
+frontend/release/
+dist_electron/
+*.exe
+*.tar.gz
+*.zip
+
+# Env / secrets
+.env
+backend/.env
+.env.local
+storage/settings.json
+storage/wechat_webhook.json
+
+# 运行产生的本地文件
+storage/uploads/
+storage/outputs/
+storage/cache/
+*.log
+logs/
+
+# Storage / runtime data
+backend/storage/
+docs/cache/
+docs/temp
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+logs/
+
+# docker 镜像本地导出文件
+*.tar
+
+# Local Codex / agent state
+.agents/
+.codex/
+
+# 向量库、数据库持久缓存
+qdrant_storage/
+postgres_data/
+redisdata/

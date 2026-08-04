@@ -1,0 +1,8 @@
+-r requirements-base.txt
+-r requirements-db.txt
+-r requirements-ai.txt
+-r requirements-doc.txt
+
+playwright
+sse-starlette
+python-multipart

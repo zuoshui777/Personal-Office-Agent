@@ -1,0 +1,44 @@
+# Web Framework
+fastapi
+uvicorn[standard]
+sse-starlette
+python-multipart
+
+# AI / LLM
+openai
+langchain
+langgraph
+mcp
+
+# Vector Database
+qdrant-client
+
+# Embedding
+FlagEmbedding
+
+# Database
+sqlalchemy
+alembic
+psycopg2-binary
+redis
+
+# Document Processing
+PyMuPDF
+python-docx
+python-pptx
+openpyxl
+pandas
+
+# OCR
+paddlepaddle
+paddleocr
+
+# Browser Automation
+playwright
+
+# Auth & Config
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt==4.0.1
+pydantic-settings
+python-dotenv

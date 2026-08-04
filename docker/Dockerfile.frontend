@@ -1,0 +1,9 @@
+FROM node:20-slim
+WORKDIR /app
+COPY package.json package-lock.json* ./
+# 跳过 Electron 二进制运行时下载，Docker 只跑 Web 服务，不需要桌面运行
+ENV ELECTRON_SKIP_BINARY_DOWNLOAD=1
+RUN npm config set registry https://registry.npmmirror.com && npm install --legacy-peer-deps
+COPY . .
+EXPOSE 5173
+CMD ["npm", "run", "dev", "--", "--host"]
