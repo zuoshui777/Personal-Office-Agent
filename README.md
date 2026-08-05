@@ -177,7 +177,7 @@ docker compose up -d --build
 初始化数据库：
 
 ``` bash
-python -m alembic upgrade head
+docker exec -it docker-backend-1 python -m alembic upgrade head
 ```
 
 访问：
