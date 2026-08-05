@@ -1,30 +1,62 @@
 # Personal Office Agent
 
-基于 FastAPI、React、LangGraph、MCP、Qdrant、Redis 的个人 AI 办公助手。
+基于 **FastAPI、React、LangGraph、MCP、Qdrant、Redis** 的个人 AI
+办公助手。
 
-## 功能
+一个支持个人知识管理、项目隔离、RAG 问答、多 Agent
+协作和工具调用的智能办公平台。
 
-- 用户注册、登录、JWT 鉴权
-- 多项目隔离
-- PDF、Word、Excel、PPT、TXT、MD、代码、图片上传
-- RAG 知识库问答
-- LangGraph 多 Agent 编排
-- MCP 工具调用
-- 长期记忆
-- 企业微信通知
-- Redis 上传队列
-- 全局搜索
-- 通知中心
-- 暗色模式
-- MIMO 图片识别
+------------------------------------------------------------------------
 
-## 技术栈
+# 功能
 
-Python 3.11 · FastAPI · SQLAlchemy · PostgreSQL · Qdrant · Redis · LangGraph · DeepSeek API · MCP SDK · React 18 · TypeScript · Vite · Zustand · Docker · Electron
+-   用户注册、登录、JWT 鉴权
+-   多项目数据隔离
+-   PDF、Word、Excel、TXT、MD、代码上传
+-   RAG 知识库问答
+-   LangGraph 多 Agent 编排
+-   MCP 工具调用
+-   长期记忆
+-   企业微信通知
+-   Redis 上传队列
+-   全局搜索
+-   通知中心
+-   暗色模式
 
-## 项目结构
+------------------------------------------------------------------------
 
-```text
+# 技术栈
+
+## 后端
+
+-   Python 3.11
+-   FastAPI
+-   SQLAlchemy
+-   PostgreSQL
+-   Redis
+-   Qdrant
+-   LangGraph
+-   DeepSeek API
+-   MCP SDK
+
+## 前端
+
+-   React 18
+-   TypeScript
+-   Vite
+-   Zustand
+
+## 部署
+
+-   Docker
+-   Docker Compose
+-   Electron
+
+------------------------------------------------------------------------
+
+# 项目结构
+
+``` text
 personal-office-agent/
 ├── backend/                 # FastAPI 后端
 │   └── app/
@@ -54,30 +86,61 @@ personal-office-agent/
 └── storage/                 # 上传文件和本地配置
 ```
 
-## 快速开始
+------------------------------------------------------------------------
 
-```bash
-cd /path/to/personal-office-agent
+# 快速开始
+
+## 创建环境
+**Conda：**
+``` bash
+conda create -n poa python=3.11
 conda activate poa
-pip install -r requirements.txt
-cp .env.example backend/.env
+```
+**venv（Python 内置，无需额外安装）：**
+
+``` bash
+# Linux / macOS
+python -m venv venv
+source venv/bin/activate
+
+# Windows
+python -m venv venv
+venv\Scripts\activate
 ```
 
-填写 `backend/.env` 后初始化数据库：
+安装依赖：
 
-```bash
+``` bash
+pip install -r requirements.txt
+```
+
+配置：
+
+``` bash
+#Linux/macOS
+cp .env.example backend/.env
+vim backend/.env
+#Windows
+copy .env.example backend\.env
+notepad backend\.env
+# 编辑 ../backend/.env，填入 API Key 等配置
+```
+
+初始化数据库：
+
+``` bash
 python -m alembic upgrade head
 ```
 
 启动后端：
 
-```bash
+``` bash
 uvicorn backend.app.main:app --reload
 ```
 
-启动前端：
+启动前端（新开一个终端）：
 
-```bash
+``` bash
 cd frontend
 npm install
 npm run dev
@@ -85,45 +148,97 @@ npm run dev
 
 访问：
 
-```text
+``` text
 http://localhost:5173
 ```
 
-## 文档
+------------------------------------------------------------------------
 
-- `docs/项目总结.md`：项目完整说明
-- `docs/Personal_Office_Agent_任务清单与后续优化建议.md`：任务与后续建议
-
-## Docker
-
+# Docker 部署
+**Linux / macOS：**
 ```bash
 cd docker
+cp ../.env.example ../backend/.env
+vim ../backend/.env
 docker compose up -d --build
 ```
+**Windows：**
+``` bash
+# 检查 WSL 是否安装（如未安装，先运行 wsl --install 并重启）
+wsl --status
+# 确认 Docker 引擎已启动（右下角鲸鱼图标为白色实心）
+docker info
+#配置并启动
+cd docker
+copy ..\.env.example ..\backend\.env
+notepad ..\backend\.env
+docker compose up -d --build
+```
+初始化数据库：
 
-## Electron
-
-```bash
-cd frontend
-npm run build
-npm run electron:build
+``` bash
+docker exec -it docker-backend-1 python -m alembic upgrade head
 ```
 
-## 环境变量
+访问：
 
-```text
+``` text
+http://localhost:5173
+```
+
+
+------------------------------------------------------------------------
+
+# Electron 打包
+
+``` bash
+cd frontend
+npm install
+npm run electron:build:win
+```
+
+------------------------------------------------------------------------
+
+# 环境变量
+
+文件：
+
+``` text
+backend/.env
+```
+
+配置：
+
+``` text
 LLM_BASE_URL=https://api.deepseek.com
 LLM_API_KEY=
 LLM_MODEL=deepseek-v4-flash
+
 JWT_SECRET=
+
 WECHAT_WEBHOOK_URL=
+
 POSTGRES_HOST=localhost
 POSTGRES_PORT=5432
 POSTGRES_USER=poa
 POSTGRES_PASSWORD=poa
 POSTGRES_DB=poa
+
 QDRANT_HOST=localhost
 QDRANT_PORT=6333
+
 REDIS_HOST=localhost
 REDIS_PORT=6379
+```
+
+------------------------------------------------------------------------
+
+# 文档
+
+项目说明：
+
+``` text
+docs/
+├── 项目总结.md
+└── Personal_Office_Agent_任务清单与后续优化建议.md
 ```

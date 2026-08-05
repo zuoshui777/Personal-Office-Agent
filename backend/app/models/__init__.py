@@ -1,6 +1,7 @@
 # ORM 模型子包初始化
 # 导入所有数据库表模型
 
+from app.database.connection import Base
 from app.models.user import User
 from app.models.project import Project
 from app.models.document import Document

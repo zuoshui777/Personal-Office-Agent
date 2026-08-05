@@ -7,7 +7,7 @@ Create Date: 2026-08-04
 
 from alembic import op
 
-from app.database.connection import Base
+from backend.app.models import Base
 
 
 revision = "20260804_baseline"
