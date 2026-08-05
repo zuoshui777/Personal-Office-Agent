@@ -1,7 +1,7 @@
 # Personal Office Agent
 
 基于 **FastAPI、React、LangGraph、MCP、Qdrant、Redis** 的个人 AI
-办公助手。
+办公助手**Personal Office Agent (POA)**。
 
 一个支持个人知识管理、项目隔离、RAG 问答、多 Agent
 协作和工具调用的智能办公平台。
@@ -91,14 +91,21 @@ personal-office-agent/
 # 快速开始
 
 ## 创建环境
-
+**Conda：**
 ``` bash
-#Conda：
 conda create -n poa python=3.11
 conda activate poa
-#venv（Python 内置，无需额外安装）:
+```
+**venv（Python 内置，无需额外安装）：**
+
+``` bash
+# Linux / macOS
 python -m venv venv
 source venv/bin/activate
+
+# Windows
+python -m venv venv
+venv\Scripts\activate
 ```
 
 安装依赖：
@@ -148,10 +155,18 @@ http://localhost:5173
 ------------------------------------------------------------------------
 
 # Docker 部署
-
-
+**Linux / macOS：**
+```bash
+cd docker
+cp ../.env.example ../backend/.env
+vim ../backend/.env
+docker compose up -d --build
+```
+**Windows：**
 ``` bash
 cd docker
+copy ..\.env.example ..\backend\.env
+notepad ..\backend\.env
 docker compose up -d --build
 ```
 
@@ -170,8 +185,6 @@ docker compose down
 ------------------------------------------------------------------------
 
 # Electron 打包
-
-进入前端：
 
 ``` bash
 cd frontend
