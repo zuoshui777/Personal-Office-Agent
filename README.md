@@ -60,7 +60,7 @@ personal-office-agent/
 cd /path/to/personal-office-agent
 conda activate poa
 pip install -r requirements.txt
-cp .env.example backend/.env
+copy ..\.env.example ..\backend\.env
 ```
 
 填写 `backend/.env` 后初始化数据库：
