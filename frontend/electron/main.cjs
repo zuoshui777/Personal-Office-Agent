@@ -21,7 +21,9 @@ function createWindow() {
   if (isDev) {
     win.loadURL(process.env.VITE_DEV_SERVER_URL)
   } else {
-    win.loadFile(path.join(__dirname, "../dist/index.html"))
+    // 使用 app.getAppPath() 获取应用根目录，更可靠
+    const appPath = app.getAppPath()
+    win.loadFile(path.join(appPath, "dist/index.html"))
   }
 }
 
