@@ -1,7 +1,7 @@
 # Personal Office Agent
 
 基于 **FastAPI、React、LangGraph、MCP、Qdrant、Redis** 的个人 AI
-办公助手**Personal Office Agent (POA)**。
+办公助手。
 
 一个支持个人知识管理、项目隔离、RAG 问答、多 Agent
 协作和工具调用的智能办公平台。
