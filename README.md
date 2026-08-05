@@ -88,7 +88,7 @@ personal-office-agent/
 
 ------------------------------------------------------------------------
 
-# Linux / macOS 安装运行
+# 快速开始
 
 ## 创建环境
 
@@ -110,8 +110,12 @@ pip install -r requirements.txt
 配置：
 
 ``` bash
+#Linux/macOS
 cp .env.example backend/.env
 vim backend/.env
+#Windows
+copy .env.example backend\.env
+notepad backend\.env
 # 编辑 ../backend/.env，填入 API Key 等配置
 ```
 
@@ -130,69 +134,6 @@ uvicorn backend.app.main:app --reload
 启动前端（新开一个终端）：
 
 ``` bash
-cd frontend
-npm install
-npm run dev
-```
-
-访问：
-
-``` text
-http://localhost:5173
-```
-
-------------------------------------------------------------------------
-
-# Windows 安装运行
-
-推荐环境：
-
--   Windows 10/11
--   Anaconda
--   Node.js
--   Docker Desktop
--   WSL2（推荐）
-
-创建环境：
-
-``` powershell
-#Conda：
-conda create -n poa python=3.11
-conda activate poa
-#venv（Python 内置，无需额外安装）:
-python -m venv venv
-source venv/bin/activate
-```
-
-安装依赖：
-
-``` powershell
-pip install -r requirements.txt
-```
-
-复制配置：
-
-``` powershell
-copy .env.example backend\.env
-notepad backend\.env
-# 编辑 ../backend/.env，填入 API Key 等配置
-```
-
-初始化数据库：
-
-``` powershell
-python -m alembic upgrade head
-```
-
-启动后端：
-
-``` powershell
-uvicorn backend.app.main:app --reload
-```
-
-启动前端：
-
-``` powershell
 cd frontend
 npm install
 npm run dev
