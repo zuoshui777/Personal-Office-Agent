@@ -174,18 +174,18 @@ copy ..\.env.example ..\backend\.env
 notepad ..\backend\.env
 docker compose up -d --build
 ```
-
-查看：
-
-``` bash
-docker compose ps
-```
-
-停止：
+初始化数据库：
 
 ``` bash
-docker compose down
+python -m alembic upgrade head
 ```
+
+访问：
+
+``` text
+http://localhost:5173
+```
+
 
 ------------------------------------------------------------------------
 
