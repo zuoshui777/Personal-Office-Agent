@@ -164,6 +164,11 @@ docker compose up -d --build
 ```
 **Windows：**
 ``` bash
+# 检查 WSL 是否安装（如未安装，先运行 wsl --install 并重启）
+wsl --status
+# 确认 Docker 引擎已启动（右下角鲸鱼图标为白色实心）
+docker info
+#配置并启动
 cd docker
 copy ..\.env.example ..\backend\.env
 notepad ..\backend\.env
