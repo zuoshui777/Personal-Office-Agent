@@ -55,16 +55,12 @@ personal-office-agent/
 ```
 
 ## 快速开始
-创建虚拟环境（二选一）
+
 ```bash
 cd /path/to/personal-office-agent
-#Anaconda
 conda activate poa
-#Python
-python -m venv venv
-venv\Scripts\activate
 pip install -r requirements.txt
-copy ..\.env.example ..\backend\.env
+cp .env.example backend/.env
 ```
 
 填写 `backend/.env` 后初始化数据库：
